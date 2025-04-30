@@ -1,14 +1,31 @@
-# Welcome to your CDK TypeScript project
+Step 1: Cloning the repository: git clone {link-of-repo}
 
-This is a blank project for CDK development with TypeScript.
+Step 2: Move inside the repository: cd {repo-name}
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+Step 3: open VS code: code .
 
-## Useful commands
+Step 4: Install dependencies/libraries/packages: npm install -y
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+Step 5: If there is a sandbox, please configure your aws credentials and bootstrap the cdk environment
+
+aws configure
+
+cdk bootstrap
+
+Step 6: Create two buckets in aws console and store files in that.
+
+Step 7: Create a github token and then pass it to the aws secret manager.
+
+aws secretsmanager create-secret --name {secret-name} --secret-string "{github-token}" --region {aws region}
+
+Step 8: Run the TypeScript compiler to transpile .ts files into .js: npm run build
+
+Step 9: Staging the code: git add .
+
+Step 10: Check the status of the file: git status
+
+Step 11: Commit the files: git commit -m "your-message"
+
+Step 12: Push the file into the branch of the repo: git push origin {branch-name}
+
+Step 13: Deploy the pipeline: cdk deploy

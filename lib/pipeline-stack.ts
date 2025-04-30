@@ -11,8 +11,9 @@ export class PipelineStack extends Stack {
     const pipeline = new CodePipeline(this, 'Pipeline', {
         pipelineName: 'S3CleanupPipeline',
         synth: new ShellStep('SynthStep', {
-          input: CodePipelineSource.gitHub('Samiksha022628/bucket-cleanup-through-cdk', 'main', { //replace 'Samiksha022628' with your github username and 'vpc-bucket-transfer-through-cdk' with your github repo
-            authentication: cdk.SecretValue.secretsManager('GITHUB_TOKEN'), 
+          input: CodePipelineSource.gitHub('Samiksha022628/bucket-cleanup-through-cdk', 'main', // replace 'Samiksha022628' with your github username and 'bucket-cleanup-through-cdk' with your github repo
+            { 
+            authentication: cdk.SecretValue.secretsManager('GITHUB_TOKEN'), // replace the 'GITHUB_TOKEN' with your aws secret name used to store the github token
           }),
           commands: [
             'npm ci',
